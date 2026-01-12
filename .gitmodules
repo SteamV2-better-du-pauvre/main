@@ -1,0 +1,3 @@
+[submodule "player"]
+	path = player
+	url = git@github.com:SteamV2-better-du-pauvre/player.git
