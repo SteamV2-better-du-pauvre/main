@@ -1,9 +1,12 @@
 [submodule "player"]
 	path = player
 	url = git@github.com:SteamV2-better-du-pauvre/player.git
+	branch = main
 [submodule "platform"]
 	path = platform
 	url = git@github.com:SteamV2-better-du-pauvre/platform.git
+	branch = main
 [submodule "game-editor"]
 	path = game-editor
 	url = git@github.com:SteamV2-better-du-pauvre/game-editor.git
+	branch = main
