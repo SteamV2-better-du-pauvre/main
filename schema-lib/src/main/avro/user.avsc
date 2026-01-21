@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "User",
+  "namespace": "com.monprojet.avro",
+  "doc": "Schéma représentant un utilisateur pour le système de jeu",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "Identifiant unique de l'utilisateur"
+    },
+    {
+      "name": "nom",
+      "type": "string",
+      "doc": "Nom complet de l'utilisateur"
+    },
+    {
+      "name": "age",
+      "type": "int",
+      "doc": "Âge de l'utilisateur"
+    }
+  ]
+}
