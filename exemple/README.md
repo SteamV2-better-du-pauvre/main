@@ -3,19 +3,19 @@ Pour lancer tous programe lancer la commande
 ``` sudo docker compose up -d```
 Tous les conteneurs doivent être lancer avant lexecution des programes.
 # Struture 
-Le projet est strurer avec 3 sous projet : \
-- game-editor \
-- platform \
-- player  \
-C'est trois projet son donc les 3 projet qui doivent comuniquer ensemble grâceà kafka. \
-De plus vous pouvez voir le dossier : \
-- schema-lib la bibliotheque \
+Le projet est strurer avec 3 sous projet : 
+- game-editor 
+- platform 
+- player  
+C'est trois projet son donc les 3 projet qui doivent comuniquer ensemble grâceà kafka. 
+De plus vous pouvez voir le dossier : 
+- schema-lib la bibliotheque 
 ## La bibliotheque 
-schema-lib est le dossier stockant tous les shcema avro. C'est shcema permet de sassurer des types transmi. \
-L'ensemble des schema doivent être mis dans le dossier : \
+schema-lib est le dossier stockant tous les shcema avro. C'est shcema permet de sassurer des types transmi. 
+L'ensemble des schema doivent être mis dans le dossier : 
 - src/main/avro/
-**IL NE DOIVENT SURTOUT PAS ETRE VIDE** sinon cella fait crash le programme. \
-Pour crée une classe utilisable dans tous les programe fait cette comande dans le terminal de inteliji : \
+**IL NE DOIVENT SURTOUT PAS ETRE VIDE** sinon cella fait crash le programme. 
+Pour crée une classe utilisable dans tous les programe fait cette comande dans le terminal de inteliji : 
 ``` ./gradlew :schema-lib:generateAvro ```
 # Kafka 
 Pour kafka nous avont 3 grosse tecno : 
