@@ -1,0 +1,66 @@
+[versions]
+kotlin = "1.9.20"
+compose = "1.5.0"
+agp = "8.1.0"
+coroutines = "1.7.3"
+androidx_activity = "1.7.2"
+lifecycle = "2.6.1"
+material3 = "1.1.0"
+
+[plugins]
+# plugin aliases referenced in your builds
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+# hot-reload plugin (distinct id)
+composeHotReload = { id = "org.jetbrains.compose.hot-reload", version.ref = "compose" }
+
+
+[libraries]
+
+[libraries.compose-runtime]
+module = "org.jetbrains.compose.runtime:runtime"
+version.ref = "compose"
+
+[libraries.compose-foundation]
+module = "org.jetbrains.compose.foundation:foundation"
+version.ref = "compose"
+
+[libraries.compose-material3]
+module = "androidx.compose.material3:material3"
+version.ref = "material3"
+
+[libraries.compose-ui]
+module = "org.jetbrains.compose.ui:ui"
+version.ref = "compose"
+
+[libraries.compose-ui-tooling-preview]
+module = "androidx.compose.ui:ui-tooling-preview"
+version.ref = "compose"
+
+[libraries.compose-components-resources]
+module = "org.jetbrains.compose.components:components-resources"
+version.ref = "compose"
+
+[libraries.androidx-activity-compose]
+module = "androidx.activity:activity-compose"
+version.ref = "androidx_activity"
+
+[libraries.kotlinx-coroutines-swing]
+module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing"
+version.ref = "coroutines"
+
+[libraries.androidx-lifecycle-viewmodel-compose]
+module = "androidx.lifecycle:lifecycle-viewmodel-compose"
+version.ref = "lifecycle"
+
+[libraries.androidx-lifecycle-runtime-compose]
+module = "androidx.lifecycle:lifecycle-runtime-compose"
+version.ref = "lifecycle"
+
+[libraries.kotlin-test]
+module = "org.jetbrains.kotlin:kotlin-test"
+version.ref = "kotlin"
