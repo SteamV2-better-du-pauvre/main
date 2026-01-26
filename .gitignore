@@ -1,2 +1,9 @@
 .idea
 .vscode
+build
+.gradle
+gradle-wrapper.jar
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

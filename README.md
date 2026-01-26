@@ -3,6 +3,14 @@ Pour lancer docker :
 ```
 docker compose up -d
 ```
+
+Pour lancer les applications :\
+Se placer dans chaque répertoire et faire 
+```shell
+./gradlew run
+```
+
+## Deprecated?
 Puis 
 ```
  docker exec --workdir /opt/kafka/bin/ -it broker-1 sh
