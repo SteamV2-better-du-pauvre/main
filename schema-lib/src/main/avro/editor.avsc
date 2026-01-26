@@ -1,0 +1,38 @@
+{
+  "type": "record",
+  "name": "Editor",
+  "namespace": "com.tonentreprise.editor",
+  "doc": "Schema représentant un éditeur de jeux vidéo",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "Identifiant unique de l'éditeur (UUID)"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": "Nom de l'éditeur"
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "doc": "Mot de passe hashé (Attention aux données sensibles)"
+    },
+    {
+      "name": "isEntreprise",
+      "type": "boolean",
+      "default": false,
+      "doc": "Indique si c'est une entreprise ou un particulier"
+    },
+    {
+      "name": "description",
+      "type": ["null", "string"],
+      "default": null,
+      "doc": "Description longue (optionnelle)"
+    }
+  ]
+}

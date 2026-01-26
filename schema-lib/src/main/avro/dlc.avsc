@@ -1,0 +1,58 @@
+{
+  "type": "record",
+  "name": "Dlc",
+  "namespace": "com.tonentreprise.dlc",
+  "doc": "Schema représentant un contenu téléchargeable (DLC) pour un jeu",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "Identifiant unique du DLC"
+    },
+    {
+      "name": "gameId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "Référence vers l'ID du jeu parent"
+    },
+    {
+      "name": "editorId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "Référence vers l'éditeur (redondance souvent utile en microservices)"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": "Nom du DLC"
+    },
+    {
+      "name": "price",
+      "type": {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 10, 
+        "scale": 2
+      },
+      "doc": "Prix du DLC"
+    },
+    {
+      "name": "numVersion",
+      "type": "float",
+      "doc": "Version du DLC"
+    },
+    {
+      "name": "isPublish",
+      "type": "boolean",
+      "default": false,
+      "doc": "Statut de publication"
+    }
+  ]
+}

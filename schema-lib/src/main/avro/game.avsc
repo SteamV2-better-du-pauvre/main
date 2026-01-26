@@ -1,0 +1,66 @@
+{
+  "type": "record",
+  "name": "Game",
+  "namespace": "com.tonentreprise.game",
+  "doc": "Schema représentant un jeu vidéo",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "Identifiant unique du jeu (UUID)"
+    },
+    {
+      "name": "editorId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "Identifiant de l'éditeur (UUID)"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": "Nom du jeu (varchar 200)"
+    },
+    {
+      "name": "platforme",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "enum",
+          "name": "PlatformeEnum",
+          "symbols": ["PC", "XBOX", "PS5", "SWITCH", "MOBILE"]
+        }
+      },
+      "default": [],
+      "doc": "Liste des plateformes supportées"
+    },
+    {
+      "name": "genre",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "enum",
+          "name": "GenreEnum",
+          "symbols": ["ACTION", "RPG", "AVENTURE", "STRATEGIE", "SPORT"]
+        }
+      },
+      "default": [],
+      "doc": "Liste des genres du jeu"
+    },
+    {
+      "name": "numVersion",
+      "type": "float",
+      "doc": "Version du jeu"
+    },
+    {
+      "name": "isPublish",
+      "type": "boolean",
+      "default": false,
+      "doc": "Statut de publication (boul)"
+    }
+  ]
+}

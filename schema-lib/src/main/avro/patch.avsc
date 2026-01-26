@@ -1,0 +1,66 @@
+{
+  "type": "record",
+  "name": "Patch",
+  "namespace": "com.tonentreprise.patch",
+  "doc": "Schema représentant un patch de mise à jour",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "Identifiant unique du patch"
+    },
+    {
+      "name": "isPatchOfGame",
+      "type": "boolean",
+      "default": true,
+      "doc": "True si c'est un patch du jeu de base, False si c'est pour un DLC"
+    },
+    {
+      "name": "gameId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "ID du jeu concerné"
+    },
+    {
+      "name": "platform",
+      "type": {
+        "type": "enum",
+        "name": "PlatformeEnum",
+        "symbols": ["PC", "XBOX", "PS5", "SWITCH", "MOBILE"]
+      },
+      "doc": "Plateforme ciblée par le patch"
+    },
+    {
+      "name": "oldVersion",
+      "type": "float",
+      "doc": "Version précédente"
+    },
+    {
+      "name": "newVersion",
+      "type": "float",
+      "doc": "Nouvelle version appliquée par ce patch"
+    },
+    {
+      "name": "comment",
+      "type": ["null", "string"],
+      "default": null,
+      "doc": "Commentaire interne (varchar 2000)"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "doc": "Patch notes public (varchar 10000)"
+    },
+    {
+      "name": "isPublish",
+      "type": "boolean",
+      "default": false,
+      "doc": "Statut de publication"
+    }
+  ]
+}
