@@ -62,6 +62,7 @@ services:
   postgres:
     image: postgres:15-alpine
     container_name: postgres
+    # On retire le bloc 'command' qui posait problème
     ports:
       - "5432:5432"
     environment:
@@ -70,6 +71,11 @@ services:
       POSTGRES_DB: my_database
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d my_database"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   postgres_data:
