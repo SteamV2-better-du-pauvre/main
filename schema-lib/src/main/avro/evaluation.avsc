@@ -1,0 +1,35 @@
+{
+  "type": "record",
+  "name": "Evaluation",
+  "namespace": "com.tonentreprise.evaluation",
+  "doc": "Schema représentant une note ou un avis donné à un jeu",
+  "fields": [
+    {
+      "name": "id_game",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "ID du jeu évalué"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "doc": "Le commentaire écrit de l'évaluation"
+    },
+    {
+      "name": "plateforme",
+      "type": {
+        "type": "enum",
+        "name": "PlatformeEnum",
+        "symbols": ["PC", "XBOX", "PS5", "SWITCH", "MOBILE"]
+      },
+      "doc": "Plateforme sur laquelle le jeu a été testé"
+    },
+    {
+      "name": "note",
+      "type": "int",
+      "doc": "Note attribuée (ex: sur 10 ou sur 5). La validation de la plage doit être faite dans le code."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "record",
+  "name": "BugReport",
+  "namespace": "com.tonentreprise.bugreport",
+  "doc": "Schema représentant un rapport de bug envoyé par un utilisateur ou un système",
+  "fields": [
+    {
+      "name": "id_game",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "ID du jeu concerné"
+    },
+    {
+      "name": "id_patch",
+      "type": ["null", {
+        "type": "string",
+        "logicalType": "uuid"
+      }],
+      "default": null,
+      "doc": "ID du patch (optionnel, car le bug peut survenir sans patch spécifique ou si inconnu)"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "doc": "Description du problème rencontré"
+    },
+    {
+      "name": "plateforme",
+      "type": {
+        "type": "enum",
+        "name": "PlatformeEnum",
+        "symbols": ["PC", "XBOX", "PS5", "SWITCH", "MOBILE"]
+      },
+      "doc": "Plateforme sur laquelle le bug a été constaté"
+    }
+  ]
+}

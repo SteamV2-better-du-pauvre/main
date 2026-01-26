@@ -1,0 +1,49 @@
+{
+  "type": "record",
+  "name": "Player",
+  "namespace": "com.tonentreprise.player",
+  "doc": "Schema représentant un joueur (Données personnelles)",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "Identifiant unique du joueur"
+    },
+    {
+      "name": "pseudo",
+      "type": "string",
+      "doc": "Pseudonyme public"
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "doc": "Mot de passe hashé (Jamais en clair !)"
+    },
+    {
+      "name": "firstName",
+      "type": "string",
+      "doc": "Prénom"
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "doc": "Nom de famille"
+    },
+    {
+      "name": "birthday",
+      "type": {
+        "type": "int",
+        "logicalType": "date"
+      },
+      "doc": "Date de naissance (jours depuis l'époque Unix)"
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "doc": "Adresse email de contact"
+    }
+  ]
+}
