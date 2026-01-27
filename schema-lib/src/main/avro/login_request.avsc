@@ -1,0 +1,27 @@
+// Un seul avro pour la connexion car même structure pour Éditeur et Joueur, il faut cependant 2 flux différents.
+{
+  "type": "record",
+  "name": "LoginRequest",
+  "namespace": "com.tonentreprise.auth",
+  "doc": "Demande de connexion (pour Éditeur ou Joueur)",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "ID unique de la tentative de connexion (Correlation ID)"
+    },
+    {
+      "name": "identifier",
+      "type": "string",
+      "doc": "L'identifiant de l'utilisateur (Pseudo pour le Joueur, Nom pour l'Éditeur)"
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "doc": "Le mot de passe en clair"
+    }
+  ]
+}

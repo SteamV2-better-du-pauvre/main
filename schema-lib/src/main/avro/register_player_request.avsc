@@ -1,0 +1,49 @@
+{
+  "type": "record",
+  "name": "RegisterPlayerRequest",
+  "namespace": "com.tonentreprise.auth",
+  "doc": "Demande d'inscription d'un nouveau joueur",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "ID unique de la demande pour la corrélation"
+    },
+    {
+      "name": "pseudo",
+      "type": "string",
+      "doc": "Le pseudo souhaité"
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "doc": "Mot de passe en clair (sera hashé par le serveur)"
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "doc": "Email de contact"
+    },
+    {
+      "name": "firstName",
+      "type": "string",
+      "doc": "Prénom"
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "doc": "Nom de famille"
+    },
+    {
+      "name": "birthday",
+      "type": {
+        "type": "int",
+        "logicalType": "date"
+      },
+      "doc": "Date de naissance (jours depuis 1970)"
+    }
+  ]
+}

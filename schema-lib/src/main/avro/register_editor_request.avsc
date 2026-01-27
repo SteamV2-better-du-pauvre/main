@@ -1,0 +1,36 @@
+{
+  "type": "record",
+  "name": "RegisterRequest",
+  "namespace": "com.tonentreprise.auth",
+  "doc": "Demande d'inscription d'un éditeur",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "ID unique de cette demande (Généré par le client)"
+    },
+    {
+      "name": "editorName",
+      "type": "string",
+      "doc": "Nom souhaité"
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "doc": "Mot de passe en clair (sera hashé par le serveur)"
+    },
+    {
+      "name": "isEntreprise",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "description",
+      "type": ["null", "string"],
+      "default": null
+    }
+  ]
+}

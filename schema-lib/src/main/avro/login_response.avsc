@@ -1,0 +1,43 @@
+// Un seul avro pour la connexion car même structure pour Éditeur et Joueur, il faut cependant 2 flux différents.
+{
+  "type": "record",
+  "name": "LoginResponse",
+  "namespace": "com.tonentreprise.auth",
+  "doc": "Réponse du serveur suite à une demande de connexion",
+  "fields": [
+    {
+      "name": "correlationId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "Copie du requestId initial"
+    },
+    {
+      "name": "isSuccess",
+      "type": "boolean",
+      "doc": "Vrai si les identifiants sont corrects"
+    },
+    {
+      "name": "token",
+      "type": ["null", "string"],
+      "default": null,
+      "doc": "Jeton de session (JWT ou UUID) à utiliser pour les futures requêtes"
+    },
+    {
+      "name": "userId",
+      "type": ["null", {
+        "type": "string",
+        "logicalType": "uuid"
+      }],
+      "default": null,
+      "doc": "L'ID de l'utilisateur connecté"
+    },
+    {
+      "name": "errorMessage",
+      "type": ["null", "string"],
+      "default": null,
+      "doc": "Message d'erreur (ex: 'Mot de passe incorrect')"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": "record",
+  "name": "RegisterResponse",
+  "namespace": "com.tonentreprise.auth",
+  "doc": "Réponse suite à une demande d'inscription",
+  "fields": [
+    {
+      "name": "correlationId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "Copie du requestId de la demande originale"
+    },
+    {
+      "name": "isSuccess",
+      "type": "boolean",
+      "doc": "Vrai si l'inscription a réussi"
+    },
+    {
+      "name": "errorMessage",
+      "type": ["null", "string"],
+      "default": null,
+      "doc": "Message d'erreur si échec (ex: 'Pseudo déjà pris')"
+    },
+    {
+      "name": "newEditorId",
+      "type": ["null", {
+        "type": "string",
+        "logicalType": "uuid"
+      }],
+      "default": null,
+      "doc": "L'ID officiel de l'éditeur créé (si succès)"
+    }
+  ]
+}

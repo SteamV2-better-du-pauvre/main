@@ -1,0 +1,36 @@
+{
+  "type": "record",
+  "name": "RegisterPlayerResponse",
+  "namespace": "com.tonentreprise.auth",
+  "doc": "Résultat de l'inscription d'un joueur",
+  "fields": [
+    {
+      "name": "correlationId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "Doit correspondre au requestId de la demande"
+    },
+    {
+      "name": "isSuccess",
+      "type": "boolean",
+      "doc": "Succès ou Echec"
+    },
+    {
+      "name": "errorMessage",
+      "type": ["null", "string"],
+      "default": null,
+      "doc": "Raison de l'échec (ex: 'Email déjà utilisé', 'Trop jeune')"
+    },
+    {
+      "name": "newPlayerId",
+      "type": ["null", {
+        "type": "string",
+        "logicalType": "uuid"
+      }],
+      "default": null,
+      "doc": "L'ID officiel du joueur créé (si succès)"
+    }
+  ]
+}
