@@ -59,6 +59,7 @@ services:
       KAFKA_CLUSTERS_0_SCHEMAREGISTRY: http://schema-registry:8081
       # Optionnel : permet de créer des topics depuis l'interface
       AUTH_TYPE: DISABLED
+
   postgres:
     image: postgres:15-alpine
     container_name: postgres
@@ -68,14 +69,20 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: my_database
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./database:/docker-entrypoint-initdb.d:Z
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U user -d my_database"]
+      test: ["CMD-SHELL", "pg_isready -U user -d editor-db"]
       interval: 5s
       timeout: 5s
       retries: 5
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8082:8080"
 
 volumes:
   postgres_data:
