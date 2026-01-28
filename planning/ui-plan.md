@@ -1,12 +1,10 @@
 # 📋 Plan de Construction UI - Steam V2 Better du Pauvre
 
-> ⚠️ **Note importante** : Pour chaque application (Player, Game Editor, Platform), une UI de test existe déjà dans le code actuel. Cette UI de test doit être **remplacée** par l'implémentation décrite dans ce document.
-
 ---
 
 ## 🎯 Objectif
 Construire l'interface utilisateur de 3 applications desktop en **Kotlin Multiplatform avec Compose** :
-1. **Player Client** - Application grand public pour les joueurs
+1. **Player** - Application grand public pour les joueurs
 2. **Game Editor** - Outil professionnel pour les studios de développement
 3. **Platform** - Interface d'administration et de modération
 
