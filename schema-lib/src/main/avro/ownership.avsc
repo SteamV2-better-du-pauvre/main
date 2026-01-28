@@ -1,0 +1,35 @@
+{
+  "type": "record",
+  "name": "Ownership",
+  "namespace": "com.steam_v2_better_du_pauvre.library",
+  "doc": "Lien de possession entre un joueur et un produit (Jeu/DLC)",
+  "fields": [
+    {
+      "name": "id",
+      "type": { "type": "string", "logicalType": "uuid" },
+      "doc": "ID unique de la ligne de possession"
+    },
+    {
+      "name": "playerId",
+      "type": { "type": "string", "logicalType": "uuid" },
+      "doc": "Clé de partition recommandée pour que le client filtre vite"
+    },
+    {
+      "name": "productId",
+      "type": { "type": "string", "logicalType": "uuid" },
+      "doc": "ID du Jeu ou du DLC"
+    },
+    {
+      "name": "productType",
+      "type": {
+        "type": "enum",
+        "name": "ProductType",
+        "symbols": ["GAME", "DLC"]
+      }
+    },
+    {
+      "name": "obtainedAt",
+      "type": { "type": "long", "logicalType": "timestamp-millis" }
+    }
+  ]
+}

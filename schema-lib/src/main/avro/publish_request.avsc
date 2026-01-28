@@ -1,0 +1,25 @@
+{
+  "type": "record",
+  "name": "PublishRequest",
+  "namespace": "com.steam_v2_better_du_pauvre.workflow",
+  "doc": "Demande générique de publication (Jeu, DLC ou Patch)",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": { "type": "string", "logicalType": "uuid" }
+    },
+    {
+      "name": "editorId",
+      "type": { "type": "string", "logicalType": "uuid" }
+    },
+    {
+      "name": "payload",
+      "type": [
+        "com.steam_v2_better_du_pauvre.game.Game",
+        "com.steam_v2_better_du_pauvre.dlc.Dlc",
+        "com.steam_v2_better_du_pauvre.patch.Patch"
+      ],
+      "doc": "L'objet à valider et publier. Avro gère cela comme une Union."
+    }
+  ]
+}

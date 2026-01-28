@@ -18,6 +18,7 @@ val avroTools: Configuration by configurations.creating
 
 dependencies {
     implementation("org.apache.avro:avro:1.11.3")
+    implementation("org.slf4j:slf4j-simple:2.0.9")
     avroTools("org.apache.avro:avro-compiler:1.11.3")
 }
 
@@ -42,21 +43,45 @@ tasks.register("generateAvro") {
         val compilerClass = loader.loadClass("org.apache.avro.compiler.specific.SpecificCompiler")
         val schemaParserClass = loader.loadClass("org.apache.avro.Schema\$Parser")
 
-        inputDir.listFiles { f -> f.extension == "avsc" }?.forEach { schemaFile ->
-            // 1. Parser le fichier .avsc [cite: 6]
-            val parser = schemaParserClass.getDeclaredConstructor().newInstance()
-            val parseMethod = schemaParserClass.getMethod("parse", File::class.java)
-            val schema = parseMethod.invoke(parser, schemaFile)
+        val parser = schemaParserClass.getDeclaredConstructor().newInstance()
+        val parseMethod = schemaParserClass.getMethod("parse", File::class.java)
+        val files = inputDir.listFiles { f -> f.extension == "avsc" }?.toMutableList() ?: mutableListOf()
+        val failedFiles = mutableMapOf<File, Throwable>()
 
-            // 2. Initialiser le compilateur (Correction de la NoSuchMethodException)
-            // On utilise explicitement schemaClass (org.apache.avro.Schema) pour le constructeur
-            val compiler = compilerClass.getConstructor(schemaClass).newInstance(schema)
+        while (files.isNotEmpty()) {
+            val processed = mutableListOf<File>()
+            val iterator = files.iterator()
+            
+            while (iterator.hasNext()) {
+                val schemaFile = iterator.next()
+                try {
+                    // 1. Parser le fichier .avsc
+                    val schema = parseMethod.invoke(parser, schemaFile)
 
-            // 3. Lancer la génération du code Java [cite: 7]
-            val compileMethod = compilerClass.getMethod("compileToDestination", File::class.java, File::class.java)
-            compileMethod.invoke(compiler, null, outputDir)
+                    // 2. Initialiser le compilateur
+                    val compiler = compilerClass.getConstructor(schemaClass).newInstance(schema)
 
-            println("✅ Schéma Avro compilé avec succès : ${schemaFile.name}")
+                    // 3. Lancer la génération du code Java
+                    val compileMethod = compilerClass.getMethod("compileToDestination", File::class.java, File::class.java)
+                    compileMethod.invoke(compiler, null, outputDir)
+
+                    println("✅ Schéma Avro compilé avec succès : ${schemaFile.name}")
+                    processed.add(schemaFile)
+                    iterator.remove()
+                    failedFiles.remove(schemaFile)
+                } catch (e: Exception) {
+                    val cause = if (e is java.lang.reflect.InvocationTargetException) e.targetException else e
+                    failedFiles[schemaFile] = cause
+                }
+            }
+
+            if (processed.isEmpty() && files.isNotEmpty()) {
+                println("⚠️ Impossible de résoudre les dépendances pour : ${files.map { it.name }}")
+                failedFiles.forEach { (f, e) -> 
+                    println("Erreur pour ${f.name} : ${e.message}")
+                }
+                throw GradleException("Erreur de compilation Avro : dépendances circulaires ou types manquants.")
+            }
         }
     }
 }

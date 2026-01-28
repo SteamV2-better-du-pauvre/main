@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "PublishResponse",
+  "namespace": "com.steam_v2_better_du_pauvre.workflow",
+  "fields": [
+    {
+      "name": "correlationId",
+      "type": { "type": "string", "logicalType": "uuid" },
+      "doc": "Correspond au requestId"
+    },
+    {
+      "name": "isSuccess",
+      "type": "boolean"
+    },
+    {
+      "name": "errorMessage",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "publishedObjectId",
+      "type": ["null", { "type": "string", "logicalType": "uuid" }],
+      "default": null,
+      "doc": "L'ID de l'objet (Jeu, DLC ou Patch) finalement publié"
+    }
+  ]
+}
