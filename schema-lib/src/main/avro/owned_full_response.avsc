@@ -1,0 +1,41 @@
+{
+  "type": "record",
+  "name": "OwnedGamesResponse",
+  "namespace": "com.steam_v2_better_du_pauvre.library",
+  "fields": [
+    { "name": "correlationId", "type": {"type": "string", "logicalType": "uuid"} },
+    {
+      "name": "totalOwned",
+      "type": "int",
+      "doc": "Nombre total de jeux possédés (utile pour l'affichage 'Vous avez 42 jeux')"
+    },
+    {
+      "name": "games",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "OwnedGameSummary",
+          "fields": [
+            {
+              "name": "gameInfo",
+              "type": "com.steam_v2_better_du_pauvre.game.Game",
+              "doc": "L'objet Jeu standard (pour afficher Nom, Image, Genre)"
+            },
+            {
+              "name": "purchaseDate",
+              "type": { "type": "long", "logicalType": "timestamp-millis" },
+              "doc": "Date d'achat (pour trier par 'Acquis récemment')"
+            },
+            {
+              "name": "playTime",
+              "type": "float",
+              "default": 0.0,
+              "doc": "Temps de jeu en heures (optionnel, mais sympa à afficher dans la liste)"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

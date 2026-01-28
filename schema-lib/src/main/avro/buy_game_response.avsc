@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "BuyGameResponse",
+  "namespace": "com.steam_v2_better_du_pauvre.commerce",
+  "fields": [
+    {
+      "name": "correlationId",
+      "type": {"type": "string", "logicalType": "uuid"}
+    },
+    {
+      "name": "isSuccess",
+      "type": "boolean"
+    },
+    {
+      "name": "errorMessage",
+      "type": ["null", "string"],
+      "default": null
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Patch",
-  "namespace": "com.tonentreprise.patch",
+  "namespace": "com.steam_v2_better_du_pauvre.patch",
   "doc": "Schema représentant un patch de mise à jour",
   "fields": [
     {

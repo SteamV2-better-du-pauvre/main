@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Player",
-  "namespace": "com.tonentreprise.player",
+  "namespace": "com.steam_v2_better_du_pauvre.player",
   "doc": "Schema représentant un joueur (Données personnelles)",
   "fields": [
     {

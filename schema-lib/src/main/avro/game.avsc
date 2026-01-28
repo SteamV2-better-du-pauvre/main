@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Game",
-  "namespace": "com.tonentreprise.game",
+  "namespace": "com.steam_v2_better_du_pauvre.game",
   "doc": "Schema représentant un jeu vidéo",
   "fields": [
     {

@@ -2,7 +2,7 @@
 {
   "type": "record",
   "name": "LoginResponse",
-  "namespace": "com.tonentreprise.auth",
+  "namespace": "com.steam_v2_better_du_pauvre.auth",
   "doc": "Réponse du serveur suite à une demande de connexion",
   "fields": [
     {

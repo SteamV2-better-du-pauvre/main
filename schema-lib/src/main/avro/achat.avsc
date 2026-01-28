@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Purchase",
-  "namespace": "com.tonentreprise.purchase",
+  "namespace": "com.steam_v2_better_du_pauvre.purchase",
   "doc": "Schema représentant une transaction d'achat (Jeu ou DLC)",
   "fields": [
     {

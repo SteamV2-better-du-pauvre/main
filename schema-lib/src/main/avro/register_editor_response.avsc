@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "RegisterResponse",
-  "namespace": "com.tonentreprise.auth",
+  "namespace": "com.steam_v2_better_du_pauvre.auth",
   "doc": "Réponse suite à une demande d'inscription",
   "fields": [
     {

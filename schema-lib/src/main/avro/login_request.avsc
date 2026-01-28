@@ -2,7 +2,7 @@
 {
   "type": "record",
   "name": "LoginRequest",
-  "namespace": "com.tonentreprise.auth",
+  "namespace": "com.steam_v2_better_du_pauvre.auth",
   "doc": "Demande de connexion (pour Éditeur ou Joueur)",
   "fields": [
     {

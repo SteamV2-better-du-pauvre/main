@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Dlc",
-  "namespace": "com.tonentreprise.dlc",
+  "namespace": "com.steam_v2_better_du_pauvre.dlc",
   "doc": "Schema représentant un contenu téléchargeable (DLC) pour un jeu",
   "fields": [
     {

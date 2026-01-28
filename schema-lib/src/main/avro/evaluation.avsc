@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Evaluation",
-  "namespace": "com.tonentreprise.evaluation",
+  "namespace": "com.steam_v2_better_du_pauvre.evaluation",
   "doc": "Schema représentant une note ou un avis donné à un jeu",
   "fields": [
     {

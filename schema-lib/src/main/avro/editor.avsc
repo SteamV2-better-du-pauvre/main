@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Editor",
-  "namespace": "com.tonentreprise.editor",
+  "namespace": "com.steam_v2_better_du_pauvre.editor",
   "doc": "Schema représentant un éditeur de jeux vidéo",
   "fields": [
     {

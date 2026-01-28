@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "BugReport",
-  "namespace": "com.tonentreprise.bugreport",
+  "namespace": "com.steam_v2_better_du_pauvre.bugreport",
   "doc": "Schema représentant un rapport de bug envoyé par un utilisateur ou un système",
   "fields": [
     {

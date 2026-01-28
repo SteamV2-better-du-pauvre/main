@@ -1,0 +1,35 @@
+{
+  "type": "record",
+  "name": "CatalogItem",
+  "namespace": "com.steam_v2_better_du_pauvre.catalog",
+  "fields": [
+    {
+      "name": "gameInfo",
+      "type": "com.steam_v2_better_du_pauvre.game.Game"
+    },
+    {
+      "name": "isOwned",
+      "type": "boolean",
+      "default": false
+    },
+    // 👇 AJOUTS INTELLIGENTS (Agrégats)
+    {
+      "name": "averageRating",
+      "type": ["null", "float"], 
+      "default": null,
+      "doc": "Moyenne calculée (ex: 4.5). Null si pas encore de note."
+    },
+    {
+      "name": "nbRatings",
+      "type": "int",
+      "default": 0,
+      "doc": "Nombre total d'avis (ex: 150 avis)"
+    },
+    {
+      "name": "hasDlc",
+      "type": "boolean",
+      "default": false,
+      "doc": "Permet d'afficher un petit badge 'Extensions dispo'"
+    }
+  ]
+}

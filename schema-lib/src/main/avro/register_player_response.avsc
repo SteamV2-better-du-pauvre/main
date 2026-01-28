@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "RegisterPlayerResponse",
-  "namespace": "com.tonentreprise.auth",
+  "namespace": "com.steam_v2_better_du_pauvre.auth",
   "doc": "Résultat de l'inscription d'un joueur",
   "fields": [
     {

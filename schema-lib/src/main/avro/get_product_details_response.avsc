@@ -1,0 +1,58 @@
+{
+  "type": "record",
+  "name": "ProductDetailsResponse",
+  "namespace": "com.steam_v2_better_du_pauvre.catalog",
+  "doc": "Détails complets d'un jeu, incluant le contexte utilisateur si connecté/possédé",
+  "fields": [
+    { "name": "correlationId", "type": {"type": "string", "logicalType": "uuid"} },
+    
+    // --- INFOS PUBLIQUES (Le Jeu) ---
+    { "name": "gameInfo", "type": "com.steam_v2_better_du_pauvre.game.Game" },
+    { "name": "averageRating", "type": "float" },
+
+    // --- INFOS CONTEXTUELLES (L'utilisateur) ---
+    { 
+      "name": "isOwned", 
+      "type": "boolean",
+      "doc": "Si true, le bouton d'action est 'JOUER', sinon c'est 'ACHETER'"
+    },
+    {
+      "name": "playTime",
+      "type": "float",
+      "default": 0.0,
+      "doc": "Temps de jeu de l'utilisateur (0 si pas possédé)"
+    },
+
+    // --- LES DETAILS LOURDS ---
+    {
+      "name": "dlcs",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "DlcDetail",
+          "fields": [
+            { "name": "dlcInfo", "type": "com.steam_v2_better_du_pauvre.dlc.Dlc" },
+            { "name": "isOwned", "type": "boolean" },
+            { "name": "price", "type": "float" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "myEvaluation",
+      "type": ["null", "com.steam_v2_better_du_pauvre.evaluation.Evaluation"],
+      "default": null,
+      "doc": "L'avis laissé par CE joueur (spécifique Bibliothèque)"
+    },
+    {
+      "name": "myBugReports",
+      "type": {
+         "type": "array",
+         "items": "com.steam_v2_better_du_pauvre.bugreport.BugReport"
+      },
+      "default": [],
+      "doc": "Les bugs signalés par CE joueur (spécifique Bibliothèque)"
+    }
+  ]
+}

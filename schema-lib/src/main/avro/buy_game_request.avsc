@@ -1,0 +1,25 @@
+{
+  "type": "record",
+  "name": "BuyGameRequest",
+  "namespace": "com.steam_v2_better_du_pauvre.commerce",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": {"type": "string", "logicalType": "uuid"}
+    },
+    {
+      "name": "playerId",
+      "type": {"type": "string", "logicalType": "uuid"}
+    },
+    {
+      "name": "productId",
+      "type": {"type": "string", "logicalType": "uuid"},
+      "doc": "ID du Jeu ou du DLC"
+    },
+    {
+      "name": "isDlc",
+      "type": "boolean",
+      "default": false
+    }
+  ]
+}
