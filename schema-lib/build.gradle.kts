@@ -2,7 +2,7 @@ import java.io.File
 import java.net.URLClassLoader
 
 plugins {
-    java
+    `java-library`
     kotlin("jvm") version "2.3.0"
 }
 
@@ -17,7 +17,7 @@ repositories {
 val avroTools: Configuration by configurations.creating
 
 dependencies {
-    implementation("org.apache.avro:avro:1.11.3")
+    api("org.apache.avro:avro:1.11.3")
     implementation("org.slf4j:slf4j-simple:2.0.9")
     avroTools("org.apache.avro:avro-compiler:1.11.3")
 }

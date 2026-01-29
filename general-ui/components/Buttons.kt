@@ -24,7 +24,8 @@ fun PrimaryButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    leadingIcon: @Composable (() -> Unit)? = null
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isHovered by interactionSource.collectIsHoveredAsState()
@@ -42,6 +43,10 @@ fun PrimaryButton(
         ),
         shape = MaterialTheme.shapes.small
     ) {
+        if (leadingIcon != null) {
+            leadingIcon()
+            Spacer(modifier = Modifier.width(8.dp))
+        }
         Text(
             text = text,
             style = MaterialTheme.typography.labelLarge

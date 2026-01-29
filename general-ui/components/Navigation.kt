@@ -218,7 +218,7 @@ fun HorizontalDivider(
     modifier: Modifier = Modifier,
     color: androidx.compose.ui.graphics.Color = AppColors.Border
 ) {
-    Divider(
+    androidx.compose.material3.HorizontalDivider(
         modifier = modifier.fillMaxWidth(),
         thickness = 1.dp,
         color = color
