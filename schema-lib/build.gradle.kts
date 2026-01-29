@@ -43,10 +43,14 @@ tasks.register("generateAvro") {
         val compilerClass = loader.loadClass("org.apache.avro.compiler.specific.SpecificCompiler")
         val schemaParserClass = loader.loadClass("org.apache.avro.Schema\$Parser")
 
-        val parser = schemaParserClass.getDeclaredConstructor().newInstance()
+        val parserConstructor = schemaParserClass.getDeclaredConstructor()
         val parseMethod = schemaParserClass.getMethod("parse", File::class.java)
+        val getTypesMethod = schemaParserClass.getMethod("getTypes")
+        val addTypesMethod = schemaParserClass.getMethod("addTypes", Map::class.java)
+        
         val files = inputDir.listFiles { f -> f.extension == "avsc" }?.toMutableList() ?: mutableListOf()
         val failedFiles = mutableMapOf<File, Throwable>()
+        val validTypes = mutableMapOf<String, Any>()
 
         while (files.isNotEmpty()) {
             val processed = mutableListOf<File>()
@@ -55,13 +59,23 @@ tasks.register("generateAvro") {
             while (iterator.hasNext()) {
                 val schemaFile = iterator.next()
                 try {
-                    // 1. Parser le fichier .avsc
+                    // 1. Créer un nouveau parser pour éviter la pollution ("Can't redefine")
+                    val parser = parserConstructor.newInstance()
+                    
+                    // 2. Injecter les types déjà connus
+                    addTypesMethod.invoke(parser, validTypes)
+
+                    // 3. Parser le fichier .avsc
                     val schema = parseMethod.invoke(parser, schemaFile)
 
-                    // 2. Initialiser le compilateur
+                    // 4. Récupérer et sauvegarder les nouveaux types
+                    val types = getTypesMethod.invoke(parser) as Map<String, Any>
+                    validTypes.putAll(types)
+
+                    // 5. Initialiser le compilateur
                     val compiler = compilerClass.getConstructor(schemaClass).newInstance(schema)
 
-                    // 3. Lancer la génération du code Java
+                    // 6. Lancer la génération du code Java
                     val compileMethod = compilerClass.getMethod("compileToDestination", File::class.java, File::class.java)
                     compileMethod.invoke(compiler, null, outputDir)
 
