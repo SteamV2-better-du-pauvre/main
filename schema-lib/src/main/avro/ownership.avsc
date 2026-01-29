@@ -21,11 +21,7 @@
     },
     {
       "name": "productType",
-      "type": {
-        "type": "enum",
-        "name": "ProductType",
-        "symbols": ["GAME", "DLC"]
-      }
+      "type": "com.steam_v2_better_du_pauvre.avro.common.ProductType"
     },
     {
       "name": "obtainedAt",

@@ -1,0 +1,6 @@
+{
+  "type": "enum",
+  "name": "ProductType",
+  "namespace": "com.steam_v2_better_du_pauvre.avro.common",
+  "symbols": ["GAME", "DLC"]
+}
