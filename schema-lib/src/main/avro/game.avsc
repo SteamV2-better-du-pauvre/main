@@ -30,9 +30,7 @@
       "type": {
         "type": "array",
         "items": {
-          "type": "enum",
-          "name": "PlatformeEnum",
-          "symbols": ["PC", "XBOX", "PS5", "SWITCH", "MOBILE"]
+          "type": "com.steam_v2_better_du_pauvre.avro.common.PlatformeEnum"
         }
       },
       "default": [],
@@ -43,9 +41,7 @@
       "type": {
         "type": "array",
         "items": {
-          "type": "enum",
-          "name": "GenreEnum",
-          "symbols": ["ACTION", "RPG", "AVENTURE", "STRATEGIE", "SPORT"]
+          "type": "com.steam_v2_better_du_pauvre.avro.common.GenreEnum"
         }
       },
       "default": [],
@@ -60,7 +56,7 @@
       "name": "isPublish",
       "type": "boolean",
       "default": false,
-      "doc": "Statut de publication (boul)"
+      "doc": "Statut de publication (bool)"
     }
   ]
 }

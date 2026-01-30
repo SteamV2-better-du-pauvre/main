@@ -1,0 +1,6 @@
+{
+  "type": "enum",
+  "name": "PlatformeEnum",
+  "namespace": "com.steam_v2_better_du_pauvre.avro.common",
+  "symbols": ["PC", "XBOX", "PS5", "SWITCH", "MOBILE"]
+}

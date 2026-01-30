@@ -28,11 +28,7 @@
     },
     {
       "name": "platform",
-      "type": {
-        "type": "enum",
-        "name": "PlatformeEnum",
-        "symbols": ["PC", "XBOX", "PS5", "SWITCH", "MOBILE"]
-      },
+      "type": "com.steam_v2_better_du_pauvre.avro.common.PlatformeEnum",
       "doc": "Plateforme ciblée par le patch"
     },
     {
