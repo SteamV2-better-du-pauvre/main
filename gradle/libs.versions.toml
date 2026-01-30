@@ -56,7 +56,7 @@ version.ref = "compose"
 module = "androidx.activity:activity-compose"
 version.ref = "androidx_activity"
 
-[libraries.cmp-coroutines-swing]
+[libraries.kotlinx-coroutines-swing]
 module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing"
 version.ref = "coroutines"
 
