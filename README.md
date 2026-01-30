@@ -1,30 +1,15 @@
 # KAFKA
-Pour lancer docker : 
+Pour lancer le docker : 
 ```
 docker compose up -d
 ```
 
 Pour lancer les applications :\
-Se placer dans chaque répertoire et faire 
 ```shell
-./gradlew run
+./run_all.sh
 ```
 
-## Deprecated?
-Puis 
-```
- docker exec --workdir /opt/kafka/bin/ -it broker-1 sh
+Pour peupler la base de données :
+Lancer le Main dans database/DatabaseLoader/src/Main.java
 
-```
-Pour crée : 
-```
-./kafka-topics.sh --bootstrap-server broker-1:19092,broker-2:19092,broker-3:19092 --create --topic test-topic
-```
-Pour lire : 
-```
-./kafka-console-consumer.sh --bootstrap-server broker-1:19092,broker-2:19092,broker-3:19092 --topic test-topic --from-beginning
-```
-Pour écire : 
-```
-./kafka-console-producer.sh --bootstrap-server broker-1:19092,broker-2:19092,broker-3:19092 --topic test-topic
-```
+Les messages Kafka sont visibles dans la console
